@@ -6,4 +6,4 @@ from discord.ext.commands import Context
 @client.command()
 async def free(ctx: Context):
     mentorAdapter.set_busy(ctx.author, False)
-    ctx.message.channel.send("You are free!")
+    await ctx.message.channel.send("You are free!")

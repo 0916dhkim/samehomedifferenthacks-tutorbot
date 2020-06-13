@@ -6,4 +6,4 @@ from discord.ext.commands import Context
 @client.command()
 async def busy(ctx: Context):
     mentorAdapter.set_busy(ctx.author, True)
-    ctx.message.channel.send("You are busy!")
+    await ctx.message.channel.send("You are busy!")
