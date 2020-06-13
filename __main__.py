@@ -1,4 +1,4 @@
-from . import mentorbot
+import mentorbot
 
 if __name__ == "__main__":
     mentorbot.main()

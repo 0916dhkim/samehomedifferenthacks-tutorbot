@@ -2,8 +2,10 @@ import discord
 from discord.ext import commands
 import json
 import logging
-from .scraper import FormScraper
+from scraper import FormScraper
 
+# Read configurations for the tutorbot
+# from config.json file.
 with open("config.json") as file:
     config = json.load(file)
 
@@ -13,10 +15,12 @@ scaper_obj = FormScraper(config['url'])
 responses = {}
 questions = {}
 
+
 def main():
     logging.basicConfig(level=logging.INFO)
     token = config['token']
     bot.run(token)
+
 
 def get_questions(form):
     fields = form.fields
@@ -36,9 +40,11 @@ def get_questions(form):
                 questions.append(embed)
     return questions
 
+
 @bot.event
 async def on_ready():
     print("Ready to start mentoring")
+
 
 @bot.event
 async def on_message(message):
@@ -55,12 +61,14 @@ async def on_message(message):
             handle_response(message, author)
             await mentor_response(message)
 
+
 def handle_response(response, author):
     responses[author]['responses'].append(response.content)
     index = len(responses[author]['responses']) - 1
     name = questions[author]['names'][index]
     responses[author]['form'].fill_field(name, response.content)
     print("Response added to field")
+
 
 async def mentor_response(message):
     author = str(message.author.id)
@@ -82,6 +90,7 @@ async def mentor_response(message):
         del responses[author]
         del questions[author]
 
+
 @bot.command()
 async def mentor(ctx):
     form = scaper_obj.extract()
@@ -99,7 +108,7 @@ async def mentor(ctx):
 
     print(questions[author])
     await ctx.author.send(config['start_message'])
-                
+
     await mentor_response(ctx.message)
     if ctx.message.channel.type != discord.ChannelType.private:
         await ctx.message.delete()
