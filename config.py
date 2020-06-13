@@ -1,6 +1,11 @@
-import json
+# Module for discord bot configuration.
 
-# Read configurations for the tutorbot
-# from config.json file.
-with open("config.json") as file:
-    config = json.load(file)
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+config = {
+    "prefix": os.getenv("TUTORBOT_PREFIX"),
+    "token": os.getenv("TUTORBOT_TOKEN"),
+}
