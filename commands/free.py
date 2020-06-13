@@ -3,6 +3,7 @@ from data import mentorAdapter
 from discord.ext.commands import Context
 
 
+# Command to mark the author as free (not busy).
 @client.command()
 async def free(ctx: Context):
     mentorAdapter.set_busy(ctx.author, False)
