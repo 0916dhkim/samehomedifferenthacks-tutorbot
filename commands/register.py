@@ -1,4 +1,4 @@
-from ..discord_client import client
+from discord_client import client
 import math
 def create_mentor_card(db_data):
     card_mentor = '''

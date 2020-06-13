@@ -1,5 +1,5 @@
-from ..discord_client import client
-from ..data import mentorAdapter
+from discord_client import client
+from data import mentorAdapter
 from discord.ext.commands import Context
 
 

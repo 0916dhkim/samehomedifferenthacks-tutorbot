@@ -4,6 +4,7 @@ from scraper import formScraper
 from config import config
 from discord_client import client
 from typing import Dict, List, Any
+from commands import add_commands
 
 
 responses: Dict[str, Any] = {}
@@ -13,6 +14,7 @@ questions: List[str] = []
 def main():
     logging.basicConfig(level=logging.INFO)
     token = config["token"]
+    add_commands()
     client.run(token)
 
 
