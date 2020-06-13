@@ -2,8 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-from .fields import Field
-from . import fields
+import fields
 
 
 class FormScraper:
@@ -45,11 +44,11 @@ class FormScraper:
         display = self.load_label(element)
 
         if element.name == 'textarea':
-            return Field(type='textarea',
-                         name=element['name'],
-                         display=display,
-                         required=element.get('required', False),
-                         default=element.text)
+            return fields.Field(type='textarea',
+                                name=element['name'],
+                                display=display,
+                                required=element.get('required', False),
+                                default=element.text)
 
         if element.name == 'input':
             ftype = element['type']
@@ -90,13 +89,14 @@ class FormScraper:
                     'values': [radio['value'] for radio in radios]
                 }
 
-            return Field(type=ftype,
-                         name=name,
-                         display=display,
-                         required=required,
-                         default=default,
-                         validator=validator,
-                         extra=extra)
+            return fields.Field(type=ftype,
+                                name=name,
+                                display=display,
+                                required=required,
+                                default=default,
+                                validator=validator,
+                                extra=extra
+                                )
 
         raise NotImplementedError('form element not supported')
 
