@@ -10,7 +10,7 @@ from discord.ext.commands import Context
 
 
 @client.command()
-async def sos(ctx: Context, *args: str):
+async def foo(ctx: Context, *args: str):
     pass
 
 ```
