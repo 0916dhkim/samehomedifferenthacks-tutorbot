@@ -1,6 +1,11 @@
 # Config file for tutorbot
 config.json
 
+# me
+.DS_Store
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
