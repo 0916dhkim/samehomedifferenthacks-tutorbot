@@ -2,6 +2,8 @@ from discord import Member
 from typing import Set
 
 
+# Adapter interface for managing
+# data used by tutorbot
 class MentorAdapterInterface:
     # Return true if the member is busy.
     def check_busy(self, member: Member) -> bool:

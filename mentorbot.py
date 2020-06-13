@@ -1,3 +1,5 @@
+# This module is for handling discord events.
+
 import logging
 from config import config
 from discord_client import client
