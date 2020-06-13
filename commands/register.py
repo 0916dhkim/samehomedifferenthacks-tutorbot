@@ -30,7 +30,7 @@ The main language of development: {}
 def mentors_card(obj):
     card = ''
     for i in range(len(obj)):
-        card += '▫️ {} {} \n Primary language: {}\n Additional languages: {}\n Ссылка: {}\n\n'.format(
+        card += '▫️ {} {} \n Primary language: {}\n Additional languages: {}\n Link: {}\n\n'.format(
             obj[i][0], obj[i][1], obj[i][2], obj[i][3], obj[i][4])
     return card
 
