@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from config import config
 
 import fields
 
@@ -175,3 +176,7 @@ class Form:
             raise RuntimeError('invalid request during form submission')
         if resp.status_code >= 500 and resp.status_code < 600:
             raise RuntimeError('internal server error during form submission')
+
+
+# Export FormScraper instance.
+formScraper = FormScraper(config["url"])
