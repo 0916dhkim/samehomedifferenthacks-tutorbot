@@ -34,6 +34,11 @@ def mentors_card(obj):
             obj[i][0], obj[i][1], obj[i][2], obj[i][3], obj[i][4])
     return card
 
+@bot.command(pass_context=True)
+async def giverole(ctx, user: discord.Member, role: discord.Role):
+    await user.add_roles(role)
+    await await ctx.send(f"hey {ctx.author.name}, {user.name} has been giving a role called: {role.name}")
+
 
 @client.command()
 async def register(ctx):
