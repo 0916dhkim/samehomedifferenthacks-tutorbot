@@ -4,6 +4,7 @@ from .free import free
 from .register import register
 from .sos import sos
 from .status import status
+from .unregister import unregister
 import logging
 
 
@@ -17,5 +18,6 @@ __all__ = [
     "register",
     "unregister",
     "sos",
-    "status"
+    "status",
+    "unregister"
 ]
