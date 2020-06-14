@@ -5,6 +5,7 @@ from .register import register
 from .sos import sos
 from .status import status
 from .unregister import unregister
+from .wisdom import wisdom
 import logging
 
 
