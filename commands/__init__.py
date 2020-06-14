@@ -15,6 +15,7 @@ __all__ = [
     "busy",
     "free",
     "register",
+    "unregister",
     "sos",
     "status"
 ]
