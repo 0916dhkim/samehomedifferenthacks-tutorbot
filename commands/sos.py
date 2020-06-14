@@ -35,6 +35,6 @@ async def sos(ctx: Context, *args: str):
     mentors = await filterMembersByRequirements(free_members, *roles)
     message = (
         f"{ctx.author.mention} needs your HELP!\n"
-        f"Available Mentors: {''.join(map(lambda m: m.mention, mentors))}"
+        f"Available Mentors: {' '.join(map(lambda m: m.mention, mentors))}"
     )
     await ctx.message.channel.send(message)
