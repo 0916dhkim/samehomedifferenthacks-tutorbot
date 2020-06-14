@@ -8,10 +8,10 @@ import random
 @client.command()
 async def wisdom(ctx):
     responses = [
-        'Concentrate on what I know is true while I wait for the mud to settle and the water to become clear.'
-        'Train yourself to let go of everything you fear to lose.'
-        'You can only find what you bring in.'
-        'Do or do not. There is no try.'
+        'Concentrate on what I know is true while I wait for the mud to settle and the water to become clear.',
+        'Train yourself to let go of everything you fear to lose.',
+        'You can only find what you bring in.',
+        'Do or do not. There is no try.',
         'The more we learn, the more we discover how much we do not know.'
         ]
 
