@@ -14,9 +14,7 @@ def hasAllRoles(member: Member, *roles: Role) -> bool:
 
 
 # Filter Members by required roles.
-async def filterMembersByRequirements(
-    members: List[Member], *roles: Role
-) -> List[Member]:
+async def filterMembersByRequirements(members: List[Member], *roles: Role) -> List[Member]:
     return list(
         filter(
             lambda m: hasAllRoles(m, *roles),
@@ -27,19 +25,11 @@ async def filterMembersByRequirements(
 
 # Command to notify mentors for help.
 @client.command()
-async def sos(ctx: Context):
+async def sos(ctx: Context, *args: str):
+    free_members = set(ctx.author.guild.members) - mentorAdapter._busy_members
+    list(free_members)
+    print(free_members)
 
-    roles = ctx.author.guild.roles
-    await ctx.message.channel.send("roles: ")
-    for r in roles:
-        await ctx.message.channel.send(r)
-
-    members = ctx.author.guild.members
-    await ctx.message.channel.send("members: ")
-    for m in members:
-        await ctx.message.channel.send(m.name)
-
-    await ctx.message.channel.send("busy members: ")
-    busyMembers = mentorAdapter._busy_members
-    for b in busyMembers:
-        await ctx.message.channel.send(b)
+    # always causes runtime warning on first call, then doesnt
+    x = filterMembersByRequirements(free_members, args)
+    print(x)
