@@ -31,5 +31,5 @@ async def sos(ctx: Context, *args: str):
     print(free_members)
 
     # always causes runtime warning on first call, then doesnt
-    x = filterMembersByRequirements(free_members, args)
+    x = await filterMembersByRequirements(free_members, args)
     print(x)
