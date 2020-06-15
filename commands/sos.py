@@ -58,12 +58,21 @@ async def sos(ctx: Context, *args: str):
         if role is not None:
             roles.append(role)
 
+    # If there is no matching role,
+    if len(roles) == 0:
+        # Send an error message.
+        await ctx.message.channel.send(
+            "Please specify more than 1 role."
+        )
+        return
+
     mentors = await filterMembersByRequirements(free_members, *roles)
 
     # Send message.
     message = (
         f"{ctx.author.mention} needs your HELP!\n"
         f"Question: {' '.join(question_words)}\n"
+        f"Roles: {' '.join(map(lambda r: r.name, roles))}\n"
         f"Available Mentors: {' '.join(map(lambda m: m.mention, mentors))}"
     )
     await ctx.message.channel.send(message)
