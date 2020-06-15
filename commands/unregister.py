@@ -4,7 +4,10 @@ from discord import utils
 
 
 # Command to add roles to the author.
-@client.command()
+@client.command(
+    help="Remove roles.",
+    usage="[ROLE]..."
+)
 async def unregister(ctx: Context, *args: str):
     for role_name in args:
         role = utils.get(ctx.author.guild.roles, name=role_name)

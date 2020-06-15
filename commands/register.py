@@ -4,7 +4,16 @@ from discord import utils
 
 
 # Command to add roles to the author.
-@client.command()
+@client.command(
+    help=(
+        "Add your technical stack.\n"
+        "Identify yourself as a mentor "
+        "by providing your technical stack. "
+        "This command will assign discord server "
+        "roles to you."
+    ),
+    usage="[ROLE]..."
+)
 async def register(ctx: Context, *args: str):
     for role_name in args:
         role = utils.get(ctx.author.guild.roles, name=role_name)
