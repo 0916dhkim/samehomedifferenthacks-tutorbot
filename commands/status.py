@@ -4,7 +4,9 @@ from discord.ext.commands import Context
 
 
 # Command to check the author's busy status.
-@client.command()
+@client.command(
+    help="Print your status."
+)
 async def status(ctx: Context):
     is_busy = mentorAdapter.check_busy(ctx.author)
     if is_busy:

@@ -5,7 +5,9 @@ import random
 
 
 # Command to add roles to the author.
-@client.command()
+@client.command(
+    help="Get your daily dose of wisdom."
+)
 async def wisdom(ctx):
     responses = [
         'Concentrate on what I know is true while I wait for the mud to settle and the water to become clear.',

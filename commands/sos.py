@@ -24,7 +24,14 @@ async def filterMembersByRequirements(
 
 
 # Command to notify mentors for help.
-@client.command()
+@client.command(
+    help=(
+        "Get help for your question.\n"
+        "Notify mentors who have specified roles "
+        "about your question."
+    ),
+    usage="[ROLE]... [-- [QUESTION]]"
+)
 async def sos(ctx: Context, *args: str):
     # Separate args into role names and question.
     role_names: List[str] = []
