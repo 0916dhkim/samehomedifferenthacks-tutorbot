@@ -13,4 +13,5 @@ from discord.ext.commands import Context
 )
 async def free(ctx: Context):
     mentorAdapter.set_busy(ctx.author, False)
-    await ctx.message.channel.send("You are free!")
+    message = "You are now open for questions."
+    await ctx.message.channel.send(message)
